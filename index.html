@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="header">
+    <nav>
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            ☰ <!-- Hamburger icon -->
+        </button>
+        <ul class="nav-items">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+      
+    <div class="image"> 
+        <img class="profile" src="images/krupali2.jpg" alt="Profile Image" style="height: 60vh; width: 30%;">
+    </div>
+    <div class="header-text">
+        <p>Full-Stack Developer </p>
+        <h1>Hi, I'm <span>Krupali</span> Solanki</h1>
+    </div>
+</div>
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <h1>About Me</h1>
+                <p style="color: #ababab; max-width: 600px; text-align: justify; margin: 10px auto;">
+                    Hello,my name is Krupali Solanki. I have completed my BE from SSEC, Bhavnagar.
+I am skilled in front-end technologies and have strong knowledge of back-end technologies, including PHP and Java. 
+                </p>
+                <div class="tab-titles">
+                    <p class="tab-links active" onclick="showTab('skills')">Skills</p>
+                    <p class="tab-links" onclick="showTab('experience')">Experience</p>
+                    <p class="tab-links" onclick="showTab('education')">Education</p>
+                </div>
+                <div class="tab-contents">
+                    <!-- Skills Content -->
+                    <ul id="skills" class="tab-content active">
+                        <li>
+                            <span>Backend Development</span>
+                            Expertise in PHP, Laravel, Livewire, and AJAX.
+                        </li>
+                        <li>
+                            <span>Frontend Development</span>
+                            Proficient in HTML, CSS, JavaScript, jQuery, Bootstrap, and modern design techniques.
+                        </li>
+                        <li>
+                            <span>Database Management</span>
+                            Strong knowledge of MySQL.
+                        </li>
+                        <li>
+                            <span>CMS Platforms</span>
+                            Experience with TYPO3 and WordPress.
+                        </li>
+                    </ul>
+                    
+                    <!-- Experience Content -->
+                    <ul id="experience" class="tab-content">
+                        <li>
+                            <span>Vivansh Infotech</span>
+                            Interned as a Backend Developer specializing in PHP and Laravel. Gained hands-on experience in developing dynamic web applications, implementing RESTful APIs, and working with database management systems.
+                        </li>
+                        <li>
+                            <span>NITSAN Technologies</span>
+                            Worked as a TYPO3 Developer, focusing on creating and customizing TYPO3 extensions, implementing Fluid templates, and optimizing TYPO3 websites for performance and scalability.
+                        </li>
+                        <li>
+                            <span>VimirLab Solutions</span>
+                            Worked as a Laravel Developer, developing robust backend solutions, integrating third-party APIs, and ensuring secure and efficient web application functionality.
+                        </li>
+                    </ul>
+                    
+                    <!-- Education Content -->
+                    <ul id="education" class="tab-content">
+                        <li>
+                            <span>Bachelor of Engineering</span>
+                            Shantilal Shah Engineering College, Bhavnagar - Major in Information Technology. Graduated with a 9 SPI.
+                        </li>
+                        <li>
+                            <span>High School</span>
+                            Mother Zainab Junior Science College, Dholka.
+                        </li>
+                        <li>
+                            <span>Secondary School</span>
+                            Shri D J Vaghela School, Koth.
+                        </li>
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="Services">
+    <div class="container">
+        <h1 style="text-align: center; font-size: 36px; color: white; padding: 80px;">My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fas fa-laptop-code"></i>
+                <h2>Website Development</h2>
+                <p>I specialize in creating dynamic, responsive websites tailored to your business needs. From simple landing pages to complex web applications, I ensure high-quality, user-friendly designs and smooth functionality.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fas fa-cogs"></i>
+                <h2>eCommerce & Management Systems</h2>
+                <p>With expertise in eCommerce platforms and management systems, I help businesses build scalable and efficient online stores. I specialize in customizing and optimizing platforms to ensure smooth operations and enhanced user experience.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fas fa-cloud"></i>
+                <h2>SaaS Development</h2>
+                <p>I offer SaaS development services, providing custom solutions that help businesses streamline operations, improve customer engagement, and scale effortlessly. From idea to implementation, I ensure your SaaS product is robust, secure, and user-friendly.</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- portfolio -->
+
+<div id="portfolio">
+    <div class="container">
+
+<h1 class="subt-title">
+    My Work
+</h1>
+<div class="work-list">
+<div class="work">
+<img src="images/work-1.png">
+<div class="layer">
+
+    <h3>ApparelHub</h3>
+    <p>ApparelHub is a WordPress-powered e-commerce platform built for the fashion industry, providing an easy-to-use interface for managing product catalogs, orders, and payments. Features include inventory management, product recommendations, and a seamless shopping experience.</p>
+    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+</div>
+</div>
+<div class="work">
+    <img src="images/work-2.png">
+    <div class="layer">
+
+        <h3>FarmLink</h3>
+        <p>FarmLink is a platform designed to connect farmers directly with sellers, eliminating intermediaries to increase profits and sales. It also provides updates on government schemes and the latest agricultural news to keep farmers informed.</p>
+        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    </div>
+    <div class="work">
+        <img src="images/work-3.png">
+        <div class="layer">
+
+            <h3>TeamSync</h3>
+              <p>TeamSync is a Laravel-powered Employee Management System (EMS) that organizes, tracks, and automates HR tasks such as leave management, holiday scheduling, and interview tracking. It aims to streamline HR processes and improve overall employee management efficiency.</p>
+
+            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        </div>
+
+        </div>
+      <a href="#" class="btn">See More</a>
+        </div>
+</div>
+
+<div id="contact">
+    <div class="container">
+        <h1 class="title">Contact Me</h1>
+        <div class="contact-wrapper">
+            <!-- Left Section -->
+            <div class="content-left">
+                <p><i class="fas fa-paper-plane"></i>krupalib2003@gmail.com</p>
+                <p><i class="fas fa-phone"></i>+91 6353426013</p>
+                <div class="social-icons">
+            
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/invites/contact/?igsh=h89hmq3tdzyi&utm_content=f2lvejd"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/krupali-solanki-74a152277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <a href="images/mycv.pdf" class="btn btn-download">Download CV</a>
+            </div>
+
+            <!-- Right Section -->
+            <div class="content-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                </form>
+                <span id="msg" style="color: #61b752;"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Krupali solanki. Made with <i class="fas fa-heart"></i> </p>
+    </div>
+</div>
+
+
+
+<div> 
+    
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
