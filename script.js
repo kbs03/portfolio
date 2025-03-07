@@ -37,10 +37,9 @@
                     setTimeout(() => { msg.innerHTML = ""; }, 5000);
                     form.reset();
                     
-                    const whatsappMessage = `Hello, I am ${name}. My email is ${email}. Message: ${message}`;
-                    const whatsappURL = `https://wa.me/919409505989?text=${encodeURIComponent(whatsappMessage)}`;
-                    window.open(whatsappURL, '_blank');
+                    // Send email notification
+                    window.location.href = `mailto:workfreelance313@gmail.com?subject=New Form Submission&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
                 })
                 .catch(error => console.error('Error!', error.message));
         });
-   
+    
