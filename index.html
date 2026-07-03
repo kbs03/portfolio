@@ -910,7 +910,7 @@
     <!-- ─── HEADER ─── -->
     <header id="header">
         <nav>
-            <div class="logo">K<span>.</span></div>
+            <div class="logo">Krupali<span>.</span></div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
             <ul class="nav-items" id="navMenu">
                 <li><a href="#header">Home</a></li>
@@ -1097,12 +1097,20 @@
                 </form>
             </div>
             <div class="footer">
-                <p>&copy; 2024 Krupali Solanki · Crafted with <i class="fas fa-heart"></i></p>
+               <!-- ─── FOOTER ─── -->
+
+<div class="footer">
+    <p>&copy; <span id="currentYear"></span> Krupali Solanki · Crafted with <i class="fas fa-heart"></i></p>
+</div>
             </div>
         </div>
     </section>
 
     <script>
+
+        
+                // ─── CURRENT YEAR ───
+document.getElementById('currentYear').textContent = new Date().getFullYear();
         // ─── NAV TOGGLE ───
         const toggle = document.getElementById('navToggle');
         const menu = document.getElementById('navMenu');
