@@ -3,228 +3,766 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>Krupali Solanki · Portfolio</title>
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
+        body {
+            background: #0b0b0b;
+            color: #f0f0f0;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* ----- HEADER / NAV ----- */
+        #header {
+            width: 100%;
+            min-height: 100vh;
+            background: radial-gradient(circle at 70% 20%, #1a0e14, #0b0b0b 80%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 6%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0 40px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .logo {
+            height: 48px;
+            width: auto;
+            filter: drop-shadow(0 0 6px rgba(255, 30, 100, 0.3));
+        }
+
+        .nav-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #ff3b7f;
+            color: #fff;
+            font-size: 26px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: 0.2s;
+        }
+        .nav-toggle:hover {
+            background: #ff3b7f33;
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-items a {
+            text-decoration: none;
+            color: #eaeaea;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+            transition: 0.2s;
+            position: relative;
+        }
+        .nav-items a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: #ff3b7f;
+            transition: 0.3s;
+        }
+        .nav-items a:hover {
+            color: #ff6b9d;
+        }
+        .nav-items a:hover::after {
+            width: 100%;
+        }
+
+        /* header content */
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .header-text {
+            flex: 1 1 300px;
+        }
+        .header-text p {
+            font-size: 1.2rem;
+            color: #ff8bb3;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .header-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .header-text h1 span {
+            background: linear-gradient(135deg, #ff2e7d, #ff9a56);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .image {
+            flex: 0 0 auto;
+        }
+        .profile {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px -12px #ff2e7d55, 0 0 0 2px #ff2e7d22;
+            transition: 0.4s ease;
+        }
+        .profile:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 50px -10px #ff2e7daa, 0 0 0 4px #ff3b7f55;
+        }
+
+        /* ----- ABOUT ----- */
+        #about {
+            padding: 80px 6%;
+            background: #111;
+        }
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .about-col-1 {
+            flex: 2;
+            min-width: 280px;
+        }
+        .about-col-1 h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #fff, #ffa0c0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 16px;
+        }
+        .about-col-1 p {
+            color: #b0b0b0;
+            max-width: 600px;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .tab-titles {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .tab-links {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #aaa;
+            cursor: pointer;
+            transition: 0.2s;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-links.active {
+            color: #ff4d88;
+            border-bottom-color: #ff4d88;
+        }
+        .tab-links:hover {
+            color: #fff;
+        }
+
+        .tab-contents ul {
+            display: none;
+            list-style: none;
+            margin-top: 10px;
+        }
+        .tab-contents ul.active {
+            display: block;
+        }
+        .tab-contents ul li {
+            background: #1c1c1c;
+            padding: 18px 24px;
+            margin-bottom: 14px;
+            border-radius: 16px;
+            border-left: 4px solid #ff3b7f;
+            box-shadow: 0 8px 18px -8px #00000066;
+            transition: 0.25s;
+            color: #ddd;
+        }
+        .tab-contents ul li:hover {
+            transform: translateX(6px);
+            background: #232323;
+            border-left-color: #ff8aae;
+        }
+        .tab-contents ul li span {
+            color: #ff6b9d;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* ----- SERVICES ----- */
+        #Services {
+            padding: 60px 6% 90px;
+            background: #0e0e0e;
+        }
+        #Services h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            background: linear-gradient(145deg, #fff, #ff9fbf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+        }
+        .services-list div {
+            background: #181818;
+            padding: 40px 28px;
+            border-radius: 28px;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+            transition: 0.3s ease;
+            box-shadow: 0 6px 20px #00000044;
+        }
+        .services-list div i {
+            font-size: 3.4rem;
+            color: #ff4d88;
+            margin-bottom: 20px;
+        }
+        .services-list div h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .services-list div p {
+            color: #b5b5b5;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .services-list div a {
+            color: #fff;
+            background: #ff3b7f;
+            padding: 8px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .services-list div a:hover {
+            background: #e62e6e;
+            transform: scale(1.02);
+            box-shadow: 0 6px 18px #ff3b7f66;
+        }
+        .services-list div:hover {
+            transform: translateY(-10px);
+            border-color: #ff3b7f66;
+            background: #1f1f1f;
+        }
+
+        /* ----- PORTFOLIO ----- */
+        #portfolio {
+            padding: 70px 6% 100px;
+            background: #111;
+        }
+        .subt-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(145deg, #fff, #ffa5c2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+        }
+        .work {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            background: #1a1a1a;
+            box-shadow: 0 10px 30px -12px #000000cc;
+        }
+        .work img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.4s;
+            display: block;
+        }
+        .layer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #0b0b0be0, #ff2e7d88);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: 0.4s ease;
+            color: #fff;
+            text-align: center;
+            backdrop-filter: blur(3px);
+        }
+        .layer h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .layer p {
+            font-size: 0.9rem;
+            max-width: 240px;
+            margin-bottom: 12px;
+            color: #f0e0e6;
+        }
+        .layer a {
+            background: #fff;
+            color: #111;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: 0.25s;
+        }
+        .layer a:hover {
+            background: #ff3b7f;
+            color: #fff;
+            transform: rotate(8deg) scale(1.08);
+        }
+        .work:hover .layer {
+            opacity: 1;
+        }
+        .work:hover img {
+            transform: scale(1.04);
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 50px auto 0;
+            padding: 14px 48px;
+            border: 1.5px solid #ff3b7f;
+            border-radius: 60px;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.25s;
+            background: transparent;
+        }
+        .btn:hover {
+            background: #ff3b7f;
+            color: #fff;
+            box-shadow: 0 6px 20px #ff3b7f55;
+            transform: translateY(-3px);
+        }
+
+        /* ----- CONTACT ----- */
+        #contact {
+            padding: 70px 6% 20px;
+            background: #0b0b0b;
+        }
+        .title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(145deg, #fff, #ffaec8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .content-left, .content-right {
+            flex: 1 1 340px;
+            background: #161616;
+            padding: 40px 30px;
+            border-radius: 32px;
+            border: 1px solid #282828;
+            box-shadow: 0 10px 30px #00000055;
+        }
+        .content-left p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .content-left p i {
+            color: #ff3b7f;
+            font-size: 1.4rem;
+            width: 28px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 22px;
+            margin: 28px 0 24px;
+        }
+        .social-icons a {
+            color: #bbb;
+            font-size: 1.8rem;
+            transition: 0.2s;
+        }
+        .social-icons a:hover {
+            color: #ff4d88;
+            transform: scale(1.1);
+        }
+        .btn-download {
+            background: #ff3b7f;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.25s;
+            border: none;
+        }
+        .btn-download:hover {
+            background: #d62e66;
+            box-shadow: 0 6px 20px #ff3b7f77;
+            transform: translateY(-3px);
+        }
+
+        .content-right form input,
+        .content-right form textarea {
+            width: 100%;
+            padding: 16px 18px;
+            margin-bottom: 18px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            background: #212121;
+            color: #f0f0f0;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+        .content-right form input:focus,
+        .content-right form textarea:focus {
+            border-color: #ff3b7f;
+            background: #2a2a2a;
+        }
+        .btn-submit {
+            background: #ff3b7f;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+        .btn-submit:hover {
+            background: #d62e66;
+            box-shadow: 0 6px 20px #ff3b7f66;
+            transform: translateY(-2px);
+        }
+        #msg {
+            display: block;
+            margin-top: 12px;
+            color: #6fdf8b;
+            font-weight: 500;
+        }
+
+        .footer {
+            margin-top: 70px;
+            padding: 30px 0 20px;
+            border-top: 1px solid #222;
+            text-align: center;
+            color: #888;
+            font-size: 0.95rem;
+        }
+        .footer i {
+            color: #ff3b7f;
+            margin: 0 6px;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 900px) {
+            .header-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .header-text h1 {
+                font-size: 3rem;
+            }
+            .profile {
+                width: 220px;
+                height: 220px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-items {
+                display: none;
+                flex-direction: column;
+                background: #151515ee;
+                backdrop-filter: blur(6px);
+                padding: 20px;
+                border-radius: 30px;
+                width: 100%;
+                gap: 12px;
+                margin-top: 10px;
+                border: 1px solid #2a2a2a;
+            }
+            .nav-items.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            nav {
+                flex-wrap: wrap;
+            }
+            .header-text h1 {
+                font-size: 2.5rem;
+            }
+            .profile {
+                width: 180px;
+                height: 180px;
+            }
+            .about-grid {
+                flex-direction: column;
+            }
+            .tab-titles {
+                justify-content: center;
+            }
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+            .work-list {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            .profile {
+                width: 150px;
+                height: 150px;
+            }
+            .content-left, .content-right {
+                padding: 24px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <div id="header">
     <nav>
-        <img src="images/logo.png" alt="Logo" class="logo">
-        <button class="nav-toggle" aria-label="Toggle navigation">
-            ☰ <!-- Hamburger icon -->
-        </button>
-        <ul class="nav-items">
-            <li><a href="#">Home</a></li>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Ctext x='0' y='32' font-family='Inter' font-weight='700' font-size='30' fill='%23ff4d88'%3EKS%3C/text%3E%3C/svg%3E" alt="KS" class="logo">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="nav-items" id="navMenu">
+            <li><a href="#header">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#Services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-      
-    <div class="image"> 
-        <img class="profile" src="images/new 2.png" alt="Profile Image" style="height: 60vh; width: 30%;">
-    </div>
-    <div class="header-text">
-        <p>Full-Stack Developer </p>
-        <h1>Hi, I'm <span>Krupali</span> Solanki</h1>
+
+    <div class="header-content">
+        <div class="header-text">
+            <p>Full-Stack Developer</p>
+            <h1>Hi, I'm <span>Krupali</span> Solanki</h1>
+        </div>
+        <div class="image">
+            <img class="profile" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Ccircle cx='150' cy='150' r='140' fill='%23222'/%3E%3Ccircle cx='150' cy='120' r='50' fill='%23ff6b9d'/%3E%3Cpath d='M60 220 Q150 270 240 220' stroke='%23ff6b9d' stroke-width='25' fill='none'/%3E%3C/svg%3E" alt="Krupali">
+        </div>
     </div>
 </div>
+
+<!-- ABOUT -->
 <div id="about">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <h1>About Me</h1>
-                <p style="color: #ababab; max-width: 600px; text-align: justify; margin: 10px auto;">
-                    Hello,my name is Krupali Solanki. I have completed my BE from SSEC, Bhavnagar.
-I am skilled in front-end technologies and have strong knowledge of back-end technologies, including PHP and Java. 
-                </p>
-                <div class="tab-titles">
-                    <p class="tab-links active" onclick="showTab('skills')">Skills</p>
-                    <p class="tab-links" onclick="showTab('experience')">Experience</p>
-                    <p class="tab-links" onclick="showTab('education')">Education</p>
-                </div>
-                <div class="tab-contents">
-                    <!-- Skills Content -->
-                    <ul id="skills" class="tab-content active">
-                        <li>
-                            <span>Backend Development</span>
-                            Expertise in PHP, Laravel, Livewire, and AJAX.
-                        </li>
-                        <li>
-                            <span>Frontend Development</span>
-                            Proficient in HTML, CSS, JavaScript, jQuery, Bootstrap, and modern design techniques.
-                        </li>
-                        <li>
-                            <span>Database Management</span>
-                            Strong knowledge of MySQL.
-                        </li>
-                        <li>
-                            <span>CMS Platforms</span>
-                            Experience with TYPO3 and WordPress.
-                        </li>
-                    </ul>
-                    
-                    <!-- Experience Content -->
-                    <ul id="experience" class="tab-content">
-                        <li>
-                            <span>Vivansh Infotech</span>
-                            Interned as a Backend Developer specializing in PHP and Laravel. Gained hands-on experience in developing dynamic web applications, implementing RESTful APIs, and working with database management systems.
-                        </li>
-                        <li>
-                            <span>NITSAN Technologies</span>
-                            Worked as a TYPO3 Developer, focusing on creating and customizing TYPO3 extensions, implementing Fluid templates, and optimizing TYPO3 websites for performance and scalability.
-                        </li>
-                        <li>
-                            <span>VimirLab Solutions</span>
-                            Worked as a Laravel Developer, developing robust backend solutions, integrating third-party APIs, and ensuring secure and efficient web application functionality.
-                        </li>
-                    </ul>
-                    
-                    <!-- Education Content -->
-                    <ul id="education" class="tab-content">
-                        <li>
-                            <span>Bachelor of Engineering</span>
-                            Shantilal Shah Engineering College, Bhavnagar - Major in Information Technology. Graduated with a 9 SPI.
-                        </li>
-                        <li>
-                            <span>High School</span>
-                            Mother Zainab Junior Science College, Dholka.
-                        </li>
-                        <li>
-                            <span>Secondary School</span>
-                            Shri D J Vaghela School, Koth.
-                        </li>
-                    </ul>
-                    
-                    
-                </div>
+    <div class="about-grid">
+        <div class="about-col-1">
+            <h1>About Me</h1>
+            <p>Hello, my name is Krupali Solanki. I have completed my BE from SSEC, Bhavnagar. I am skilled in front-end technologies and have strong knowledge of back-end technologies, including PHP and Java.</p>
+            <div class="tab-titles">
+                <p class="tab-links active" data-tab="skills">Skills</p>
+                <p class="tab-links" data-tab="experience">Experience</p>
+                <p class="tab-links" data-tab="education">Education</p>
+            </div>
+            <div class="tab-contents">
+                <ul id="skills" class="active">
+                    <li><span>Backend Development</span>PHP, Laravel, Livewire, AJAX</li>
+                    <li><span>Frontend Development</span>HTML, CSS, JavaScript, jQuery, Bootstrap</li>
+                    <li><span>Database Management</span>MySQL, query optimization</li>
+                    <li><span>CMS Platforms</span>TYPO3, WordPress</li>
+                </ul>
+                <ul id="experience">
+                    <li><span>Vivansh Infotech</span>Intern · PHP & Laravel, REST APIs, DB management</li>
+                    <li><span>NITSAN Technologies</span>TYPO3 Developer · Extensions, Fluid templates, performance</li>
+                    <li><span>VimirLab Solutions</span>Laravel Developer · Backend, API integration, security</li>
+                </ul>
+                <ul id="education">
+                    <li><span>Bachelor of Engineering</span>SSEC, Bhavnagar · IT, 9 SPI</li>
+                    <li><span>High School</span>Mother Zainab Junior Science College, Dholka</li>
+                    <li><span>Secondary School</span>Shri D J Vaghela School, Koth</li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
+
+<!-- SERVICES -->
 <div id="Services">
-    <div class="container">
-        <h1 style="text-align: center; font-size: 36px; color: white; padding: 80px;">My Services</h1>
-        <div class="services-list">
-            <div>
-                <i class="fas fa-laptop-code"></i>
-                <h2>Website Development</h2>
-                <p>I specialize in creating dynamic, responsive websites tailored to your business needs. From simple landing pages to complex web applications, I ensure high-quality, user-friendly designs and smooth functionality.</p>
-                <a href="#">Learn more</a>
-            </div>
-            <div>
-                <i class="fas fa-cogs"></i>
-                <h2>eCommerce & Management Systems</h2>
-                <p>With expertise in eCommerce platforms and management systems, I help businesses build scalable and efficient online stores. I specialize in customizing and optimizing platforms to ensure smooth operations and enhanced user experience.</p>
-                <a href="#">Learn more</a>
-            </div>
-            <div>
-                <i class="fas fa-cloud"></i>
-                <h2>SaaS Development</h2>
-                <p>I offer SaaS development services, providing custom solutions that help businesses streamline operations, improve customer engagement, and scale effortlessly. From idea to implementation, I ensure your SaaS product is robust, secure, and user-friendly.</p>
-                <a href="#">Learn more</a>
-            </div>
-        </div>
+    <h1>My Services</h1>
+    <div class="services-list">
+        <div><i class="fas fa-laptop-code"></i><h2>Website Development</h2><p>Dynamic, responsive websites from landing pages to complex applications.</p><a href="#">Learn more</a></div>
+        <div><i class="fas fa-cogs"></i><h2>eCommerce & CMS</h2><p>Scalable online stores, management systems, TYPO3 & WordPress.</p><a href="#">Learn more</a></div>
+        <div><i class="fas fa-cloud"></i><h2>SaaS Development</h2><p>Custom SaaS solutions, robust, secure, and user-friendly.</p><a href="#">Learn more</a></div>
     </div>
 </div>
 
-
-
-<!-- portfolio -->
-
+<!-- PORTFOLIO -->
 <div id="portfolio">
-    <div class="container">
-
-<h1 class="subt-title">
-    My Work
-</h1>
-<div class="work-list">
-<div class="work">
-<img src="images/work-1.png">
-<div class="layer">
-
-   <h3>ApparelHub</h3>
-<p>ApparelHub is a PHP-powered e-commerce platform tailored for the fashion industry. It features a custom-built interface for managing product catalogs, orders, and payments. Key functionalities include inventory management, personalized product recommendations, and a seamless shopping experience.</p>
-
-    <a href="#"><i class="fas fa-external-link-alt"></i></a>
-</div>
-</div>
-<div class="work">
-    <img src="images/work-2.png">
-    <div class="layer">
-
-        <h3>FarmLink</h3>
-        <p>FarmLink is a platform designed to connect farmers directly with sellers, eliminating intermediaries to increase profits and sales. It also provides updates on government schemes and the latest agricultural news to keep farmers informed.</p>
-        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+    <h1 class="subt-title">My Work</h1>
+    <div class="work-list">
+        <div class="work">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%231a1a1a'/%3E%3Ctext x='40' y='130' font-family='Inter' font-weight='700' font-size='38' fill='%23ff6b9d'%3EApparelHub%3C/text%3E%3C/svg%3E" alt="ApparelHub">
+            <div class="layer"><h3>ApparelHub</h3><p>PHP e‑commerce · catalog, orders, inventory, recommendations.</p><a href="#"><i class="fas fa-external-link-alt"></i></a></div>
+        </div>
+        <div class="work">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%231a1a1a'/%3E%3Ctext x='60' y='130' font-family='Inter' font-weight='700' font-size='38' fill='%23ff9a56'%3EFarmLink%3C/text%3E%3C/svg%3E" alt="FarmLink">
+            <div class="layer"><h3>FarmLink</h3><p>Connect farmers & sellers, govt schemes, agricultural news.</p><a href="#"><i class="fas fa-external-link-alt"></i></a></div>
+        </div>
+        <div class="work">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%231a1a1a'/%3E%3Ctext x='50' y='130' font-family='Inter' font-weight='700' font-size='38' fill='%23a78bfa'%3ETeamSync%3C/text%3E%3C/svg%3E" alt="TeamSync">
+            <div class="layer"><h3>TeamSync</h3><p>Laravel EMS · leave, holidays, interview tracking.</p><a href="#"><i class="fas fa-external-link-alt"></i></a></div>
+        </div>
     </div>
-    </div>
-    <div class="work">
-        <img src="images/work-3.png">
-        <div class="layer">
-
-            <h3>TeamSync</h3>
-              <p>TeamSync is a Laravel-powered Employee Management System (EMS) that organizes, tracks, and automates HR tasks such as leave management, holiday scheduling, and interview tracking. It aims to streamline HR processes and improve overall employee management efficiency.</p>
-
-            <a href="#"><i class="fas fa-external-link-alt"></i></a>
-        </div>
-        </div>
-
-        </div>
-      <a href="#" class="btn">See More</a>
-        </div>
+    <a href="#" class="btn">See More</a>
 </div>
 
+<!-- CONTACT -->
 <div id="contact">
     <div class="container">
         <h1 class="title">Contact Me</h1>
         <div class="contact-wrapper">
-            <!-- Left Section -->
             <div class="content-left">
-                <p><i class="fas fa-paper-plane"></i>workfreelance313@gmail.com</p>
-                <p><i class="fas fa-phone"></i>+91 9409505989</p>
+                <p><i class="fas fa-paper-plane"></i> workfreelance313@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 9409505989</p>
                 <div class="social-icons">
-            
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/invites/contact/?igsh=h89hmq3tdzyi&utm_content=f2lvejd"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/krupali-solanki-74a152277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
-                <a href="images/mycv.pdf" class="btn btn-download">Download CV</a>
+                <a href="#" class="btn-download">Download CV</a>
             </div>
-
-            <!-- Right Section -->
             <div class="content-right">
                 <form name="submit-to-google-sheet">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message"></textarea>
-                    <button type="submit" class="btn btn-submit">Submit</button>
+                    <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn-submit">Submit</button>
                 </form>
-                <span id="msg" style="color: #61b752;"></span>
+                <span id="msg"></span>
             </div>
         </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2024 Krupali solanki. Made with <i class="fas fa-heart"></i> </p>
+        <div class="footer">
+            <p>&copy; 2024 Krupali Solanki. Made with <i class="fas fa-heart"></i></p>
+        </div>
     </div>
 </div>
 
+<script>
+    // NAV TOGGLE
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
 
+    // TAB SYSTEM
+    const tabLinks = document.querySelectorAll('.tab-links');
+    const tabContents = {
+        skills: document.getElementById('skills'),
+        experience: document.getElementById('experience'),
+        education: document.getElementById('education')
+    };
 
-<div> 
-    
-</div>
-<script src="script.js"></script>
+    tabLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            tabLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            const tab = link.dataset.tab;
+            Object.keys(tabContents).forEach(key => {
+                tabContents[key].classList.toggle('active', key === tab);
+            });
+        });
+    });
+
+    // FORM MESSAGE (demo)
+    const form = document.querySelector('form[name="submit-to-google-sheet"]');
+    const msg = document.getElementById('msg');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        msg.textContent = '✅ Thanks! I\'ll get back soon.';
+        form.reset();
+        setTimeout(() => msg.textContent = '', 4000);
+    });
+</script>
 </body>
 </html>
-
-
-
-
-
-
